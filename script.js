@@ -37,9 +37,9 @@ let size=startSize
 
 ctx.font=`bold ${size}px serif`
 
-while(ctx.measureText(text).width>maxWidth){
-size--
-ctx.font=`bold ${size}px serif`
+while(ctx.measureText(text).width > maxWidth && size > 16){
+    size--
+    ctx.font = `bold ${size}px serif`
 }
 
 return size
@@ -58,9 +58,10 @@ alert("Enter name and department")
 return
 }
 
-// Show loading state
+// Show loading state and hide old download button
 const loadingState = document.getElementById("loadingState")
 if (loadingState) loadingState.style.display = "block"
+downloadBtn.style.display = "none"
 generateBtn.disabled = true;
 generateBtn.textContent = "Generating...";
 
@@ -202,31 +203,39 @@ function openLightbox(element) {
 
 function closeLightbox(event) {
     // If clicking outside the image or on the close button
-    if (!event || event.target === lightbox || event.target.className === 'close-modal') {
+    if (!event || event.target === lightbox || event.target.classList.contains('close-modal')) {
         lightbox.classList.remove('show');
         document.body.style.overflow = 'auto'; // Restore scrolling
         setTimeout(() => { lightboxImg.src = ''; }, 300);
     }
 }
 
-// ---- Video Modal ----
-const videoModal = document.getElementById('videoModal');
-const videoPlayer = document.getElementById('videoPlayer');
+/* ---- Video Modal ---- */
 
-function openVideoModal(videoUrl) {
-    videoPlayer.src = videoUrl;
-    videoModal.classList.add('show');
-    document.body.style.overflow = 'hidden';
-    videoPlayer.play().catch(e => console.log("User interaction required for autoplay", e));
+const videoModal = document.getElementById("videoModal")
+const videoPlayer = document.getElementById("videoPlayer")
+
+function openVideoModal(videoUrl){
+
+videoPlayer.src = videoUrl
+videoModal.classList.add("show")
+document.body.style.overflow = "hidden"
+
 }
 
-function closeVideoModal(event) {
-    if (!event || event.target === videoModal || event.target.className === 'close-modal') {
-        videoModal.classList.remove('show');
-        document.body.style.overflow = 'auto';
-        videoPlayer.pause();
-        setTimeout(() => { videoPlayer.src = ''; }, 400); // 400ms to match CSS
-    }
+function closeVideoModal(event){
+
+if(!event || event.target === videoModal || event.target.classList.contains("close-modal")){
+
+videoModal.classList.remove("show")
+document.body.style.overflow = "auto"
+
+setTimeout(()=>{
+videoPlayer.src = ""
+},300)
+
+}
+
 }
 
 // ---- Scroll Animations ----
