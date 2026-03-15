@@ -241,27 +241,27 @@ videoPlayer.src = ""
 // ---- Scroll Animations ----
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Intersection Observer for fade-in elements
-    const fadeElements = document.querySelectorAll('.fade-in');
-    
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15
-    };
-    
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('appear');
-                observer.unobserve(entry.target); // Only animate once
+    // Initialize AOS animations
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50
+        });
+    }
+
+    // Advanced Parallax for Hero section
+    const heroBg = document.querySelector('.hero-bg');
+    if(heroBg) {
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            // Only animate if hero is in view to save performance
+            if(scrollY < window.innerHeight) {
+                heroBg.style.transform = `translateY(${scrollY * 0.35}px) scale(1.05)`;
             }
         });
-    }, observerOptions);
-    
-    fadeElements.forEach(el => {
-        observer.observe(el);
-    });
+    }
 
     // Close modals on Escape key
     document.addEventListener('keydown', (e) => {
