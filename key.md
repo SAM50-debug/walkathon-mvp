@@ -1,1 +1,0 @@
-https://script.google.com/macros/s/AKfycbxN0zkm-_QOJ9DU7qT0amFs4JvoExv_iPXzkFdWnVk5eT4BuY8Pu5c8hGVkx_RiI5SopQ/exec
