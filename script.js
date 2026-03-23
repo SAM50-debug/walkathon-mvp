@@ -124,7 +124,7 @@ canvas.height*0.46
 
 /* DEPARTMENT */
 
-ctx.font="30px serif"
+ctx.font="34px serif"
 
 ctx.fillText(
 dept,
