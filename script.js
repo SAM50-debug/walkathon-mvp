@@ -140,11 +140,11 @@ const serialDigits=serial.split("/").pop()
 ctx.save()
 
 ctx.translate(
-canvas.width*0.990,
-canvas.height*0.347,
+canvas.width*0.94,
+canvas.height*0.03,
 )
 
-ctx.rotate(-Math.PI/2)
+//ctx.rotate(-Math.PI/2)
 
 ctx.textAlign="center"
 ctx.fillStyle="#000"
