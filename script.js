@@ -124,12 +124,18 @@ canvas.height*0.46
 
 /* DEPARTMENT */
 
-ctx.font="34px serif"
+const deptFontSize = fitName(
+    dept,
+    canvas.width * 0.50,   // max width allowed
+    44                     // starting size (bigger)
+)
+
+ctx.font = `${deptFontSize}px serif`
 
 ctx.fillText(
-dept,
-canvas.width*0.35,
-canvas.height*0.555,
+    dept,
+    canvas.width * 0.35,
+    canvas.height * 0.555
 )
 
 
