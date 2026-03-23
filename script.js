@@ -87,7 +87,7 @@ const img=new Image()
 
 img.crossOrigin="anonymous"
 
-img.src="assets/certificate/certificate-template.jpeg"
+img.src="assets/certificate/certificate-template.png"
 
 img.onload=function(){
 
@@ -110,7 +110,7 @@ ctx.textAlign="center"
 const fontSize=fitName(
 name.toUpperCase(),
 canvas.width*0.55,
-64
+60
 )
 
 ctx.font=`bold ${fontSize}px serif`
