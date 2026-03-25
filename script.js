@@ -146,7 +146,7 @@ const serialDigits=serial.split("/").pop()
 ctx.save()
 
 ctx.translate(
-canvas.width*0.94,
+canvas.width*0.93,
 canvas.height*0.03,
 )
 
